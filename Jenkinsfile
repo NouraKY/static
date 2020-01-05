@@ -1,9 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Build'){
+        stage('Upload to AWS'){
             steps {
-                sh 'echo "Hello World"'
+               withAWS(region:'us-west-2', credentials:'jenkins') {
+                   
+                   s3Upload(file:'/index.html', bucket:'jenkinspipline', path:'/')
+               }
                 sh '''
                     echo "Multiline shell steps works too"
                     ls -lah
