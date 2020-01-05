@@ -5,7 +5,7 @@ pipeline {
             steps {
                withAWS(region:'us-west-2', credentials:'aws-static') {
                    
-                   s3Upload(file:'/index.html', bucket:'jenkinspipline', path:'/')
+                   s3Upload(file:'index.html', bucket:'jenkinspipline', path:'/')
                }
                 sh '''
                     echo "Multiline shell steps works too"
