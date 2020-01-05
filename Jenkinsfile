@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Lint HTML'){
             steps{   
-                 ssh 'tidy -q -e *.html'   
+                sh 'tidy -q -e *.html'   
                 
             }
         }
